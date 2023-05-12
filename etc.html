@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>더보기</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        .top_bar {
+            background: #ddd;
+            position: fixed;
+            left: 0; top: 0; right: 0;
+            height: 50px;
+        }
+        .container {
+            margin-top: 50px;
+            margin-left: 50px;
+            width: 900px;
+            height: 500px;
+            text-decoration: none;
+        }
+        
+        .fixed-bar {
+            background-color: #ddd;
+            color: #333;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 10px;
+            text-decoration: none;
+        }
+        
+        li {
+            align-items: center;
+            padding: 30px;
+        }
+        a {
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="top_bar"></div>
+    <div class="container">
+        <ul>
+            <li><a href="#">내 프로필</a></li>
+            <li><a href="#">커뮤니티</a></li>
+            <li><a href="#">랭킹</a></li>
+            <li><a href="#">등등</a></li>
+            <li><a href="#">로그인</a></li>
+            <li><a href="#">아바타</a></li>
+        </ul>
+    </div>
+    <div class="fixed-bar">
+        <span><a href="main.html">홈</a></span>
+        <span><a href="exercise.html">운동</a></span>
+        <span><a href="monthly.html">달력</a></span>
+        <span><a href="etc.html">더보기</a></span>
+    </div>
+</body>
+</html>
