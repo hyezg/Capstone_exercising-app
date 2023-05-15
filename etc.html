@@ -2,60 +2,34 @@
 <html lang="ko">
 <head>
     <title>더보기</title>
+    <link rel="stylesheet" href="top_bottom.css">
     <style>
         body {
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
         }
-        .top_bar {
-            background: #ddd;
-            position: fixed;
-            left: 0; top: 0; right: 0;
-            height: 50px;
-        }
-        .container {
-            margin-top: 50px;
-            margin-left: 50px;
-            width: 900px;
-            height: 500px;
-            text-decoration: none;
-        }
-        
-        .fixed-bar {
-            background-color: #ddd;
-            color: #333;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            padding: 10px;
-            text-decoration: none;
-        }
-        
-        li {
-            align-items: center;
-            padding: 30px;
-        }
-        a {
-            text-decoration: none;
-            color: black;
-        }
+
+     
     </style>
 </head>
 <body>
-    <div class="top_bar"></div>
+    <div class="top">
+        <nav>
+            <ul>
+            <li><a href="#">더보기</a></li>
+            </ul>
+        </nav>
+    </div>
     <div class="container">
         <ul>
             <li><a href="#">내 프로필</a></li>
-            <li><a href="#">커뮤니티</a></li>
-            <li><a href="#">랭킹</a></li>
-            <li><a href="#">등등</a></li>
-            <li><a href="#">로그인</a></li>
-            <li><a href="#">아바타</a></li>
+            <hr>
+            <li><a href="comu01.html">커뮤니티</a></li>
+            <hr>
+            <li><a href="#">설정</a></li>
+            <hr>
+            <li><a href="#">기타</a></li>
         </ul>
     </div>
     <div class="fixed-bar">
