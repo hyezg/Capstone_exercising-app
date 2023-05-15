@@ -1,26 +1,112 @@
-nav {
-        background-color: #333;
-        color: #fff;
-        display: flex;
-        flex-direction: column; /* 세로 정렬 */
-        align-items: center; /* 가운데 정렬 */
-        padding: 10px;
-      }
-      
-      nav ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        display: flex;
-      }
-      
-      nav li {
-        margin: 0 10px;
-      }
-      
-      nav a {
-        color: #fff;
-        text-decoration: none;
-        font-weight: bold;
-        font-size: 16px;
-      }
+<!DOCTYPE html>
+<html>
+<head>
+    <title>운동 영상 추천</title>
+    <link rel="stylesheet" href="top_bottom.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // 검색 버튼 클릭 시
+            $("#search-button").click(function () {
+                var bodyPart = $("#body-part").val(); // 사용자가 선택한 신체 부위
+                var difficulty = $("#difficulty").val(); // 사용자가 선택한 운동 난이도
+                var location = $("#location").val(); // 사용자가 선택한 운동 장소
+                var duration = $("#duration").val(); // 사용자가 선택한 비디오 길이
+
+                var query = bodyPart + " " + location + " " + duration + "운동"; // 검색어 생성
+
+                // YouTube API 요청을 위한 파라미터 생성
+                var params = {
+                    part: "id",
+                    type: "video",
+                    videoDefinition: "high",
+                    videoDuration: duration,
+                    videoEmbeddable: "true",
+                    q: query,
+                    maxResults: 10,
+                    key: "AIzaSyDGBX0s4eOSOGdT26ddOuqrNmpWK_4vq0w"
+                };
+
+                // YouTube API 요청을 위한 URL 생성
+                var url = "https://www.googleapis.com/youtube/v3/search?" + $.param(params);
+
+                // YouTube API 요청 보내기
+                $.getJSON(url, function (data) {
+                    var videoIds = [];
+
+                    // 검색 결과에서 비디오 ID 추출
+                    $.each(data.items, function (i, item) {
+                        videoIds.push(item.id.videoId);
+                    });
+
+                    // 검색 결과 출력
+                    var resultHtml = "";
+                    for (var i = 0; i < videoIds.length; i++) {
+                        resultHtml += "<p><a href='https://www.youtube.com/watch?v=" + videoIds[i] + "' target='_blank'>https://www.youtube.com/watch?v=" + videoIds[i] + "</a></p>";
+                    }
+                    $("#result").html(resultHtml);
+                });
+            });
+        });
+    </script>
+    <style>
+        button {
+            background: yellow;
+            width: 100px;
+            height: 35px;
+
+        }
+        #result {
+            text-align: center;
+            text-decoration: none;
+            background-image: url(a.jpeg); /*넣을지말지고민*/
+        }
+    </style>
+</head>
+<body>
+    <div class="top">
+        <nav>
+            <ul>
+            <li><a href="exercise.html">운동 영상 추천</a></li>
+            <li><a href="rec02.html">추천영상</a></li>
+            <li><a href="#">인기운동순위</a></li>
+            </ul>
+        </nav>
+    </div>
+    <p></p>
+<div class="container">
+    <form>
+        <label for="body-part">신체 부위: </label>
+        <select id="body-part">
+            <option value="상체">상체</option>
+            <option value="하체">하체</option>
+        </select><p></p>
+        <br>
+        <label for="location">운동 장소: </label>
+        <select id="location">
+            <option value="집">집</option>
+            <option value="헬스장">헬스장</option>
+            <option value="밖">밖</option>
+        </select><p></p>
+        <br>
+        <label for="duration"> 길이: </label>
+        <select id="duration">
+            <option value="any">전체</option>
+            <option value="short">15분이하</option>
+            <option value="medium">30분</option>
+            <option value="long">1시간이상</option>
+        </select><p></p>
+        <br>
+        <button type="button" id="search-button">검색</button>
+    </form>
+    </div>
+        <div id="result"></div>
+    </div>
+    <div class="fixed-bar">
+        <span><a href="main.html">홈</a></span>
+        <span><a href="exercise.html">운동</a></span>
+        <span><a href="monthly.html">달력</a></span>
+        <span><a href="etc.html">더보기</a></span>
+    </div>
+</body>
+</html>
