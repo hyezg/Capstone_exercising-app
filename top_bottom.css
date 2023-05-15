@@ -1,0 +1,56 @@
+/* * {
+  margin: 0;
+  padding: 0;
+} */
+
+.top {
+    background: gray;
+    text-align: center;
+}
+.container {
+    text-align: center;
+    padding: 30px;
+    /* padding: 80px; */
+}
+a{
+    text-decoration: none;
+    color: #333;
+}
+nav {
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    flex-direction: column; /* 세로 정렬 */
+    align-items: center; /* 가운데 정렬 */
+    padding: 10px;
+  }
+  
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  nav li {
+    margin: 0 10px;
+  }
+  
+  nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 15px;
+  }
+  .fixed-bar {
+    background-color: #ddd;
+    color: #333;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+}
