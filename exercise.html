@@ -61,6 +61,9 @@
             text-decoration: none;
             padding: 50px;
         }
+        .result {
+            border-color: #FFA500;
+        }
     </style>
 </head>
 <body>
@@ -76,12 +79,6 @@
     <p></p>
     <div class="container">
     <form>
-        <label for="body-part">신체 부위:  </label>
-        <select id="body-part">
-            <option value="상체">상체</option>
-            <option value="하체">하체</option>
-        </select><p></p>
-        <br>
         <label for="location">운동 장소:  </label>
         <select id="location">
             <option value="집">집</option>
@@ -89,12 +86,18 @@
             <option value="밖">밖</option>
         </select><p></p>
         <br>
+        <label for="body-part">신체 부위:  </label>
+        <select id="body-part">
+            <option value="상체">상체</option>
+            <option value="하체">하체</option>
+        </select><p></p>
+        <br>
         <label for="duration"> 길이:  </label>
         <select id="duration">
             <option value="any">전체</option>
-            <option value="short">15분이하</option>
+            <option value="short">15분 이하</option>
             <option value="medium">30분</option>
-            <option value="long">1시간이상</option>
+            <option value="long">1시간 이상</option>
         </select><p></p>
         <br>
         <button type="button" id="search-button">검색</button>
