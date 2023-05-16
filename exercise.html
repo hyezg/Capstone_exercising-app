@@ -9,11 +9,10 @@
             // 검색 버튼 클릭 시
             $("#search-button").click(function () {
                 var bodyPart = $("#body-part").val(); // 사용자가 선택한 신체 부위
-                var difficulty = $("#difficulty").val(); // 사용자가 선택한 운동 난이도
                 var location = $("#location").val(); // 사용자가 선택한 운동 장소
                 var duration = $("#duration").val(); // 사용자가 선택한 비디오 길이
 
-                var query = bodyPart + " " + location + " " + duration + "운동"; // 검색어 생성
+                var query = location + " " + bodyPart + " " + duration + "운동"; // 검색어 생성
 
                 // YouTube API 요청을 위한 파라미터 생성
                 var params = {
@@ -42,7 +41,7 @@
                     // 검색 결과 출력
                     var resultHtml = "";
                     for (var i = 0; i < videoIds.length; i++) {
-                        resultHtml += "<p><a href='https://www.youtube.com/watch?v=" + videoIds[i] + "' target='_blank'>https://www.youtube.com/watch?v=" + videoIds[i] + "</a></p>";
+                        resultHtml += "<iframe width='300' height='150' src='https://www.youtube.com/embed/" + videoIds[i] + "' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>";
                     }
                     $("#result").html(resultHtml);
                 });
@@ -51,15 +50,16 @@
     </script>
     <style>
         button {
-            background: yellow;
-            width: 100px;
-            height: 35px;
-
+            background: #FFA500;
+            color: #fff;
+            border-color: white;
+            width: 100px; height: 40px;
+            border-radius: 10px;
         }
         #result {
             text-align: center;
             text-decoration: none;
-            background-image: url(a.jpeg); /*넣을지말지고민*/
+            padding: 50px;
         }
     </style>
 </head>
@@ -67,29 +67,29 @@
     <div class="top">
         <nav>
             <ul>
-            <li><a href="exercise.html">운동 영상 추천</a></li>
-            <li><a href="rec02.html">추천영상</a></li>
-            <li><a href="#">인기운동순위</a></li>
+                <li><a href="exercise.html">운동 영상 추천</a></li>
+                <li><a href="rec02.html">추천영상</a></li>
+                <li><a href="#">인기운동순위</a></li>
             </ul>
         </nav>
     </div>
     <p></p>
-<div class="container">
+    <div class="container">
     <form>
-        <label for="body-part">신체 부위: </label>
+        <label for="body-part">신체 부위:  </label>
         <select id="body-part">
             <option value="상체">상체</option>
             <option value="하체">하체</option>
         </select><p></p>
         <br>
-        <label for="location">운동 장소: </label>
+        <label for="location">운동 장소:  </label>
         <select id="location">
             <option value="집">집</option>
             <option value="헬스장">헬스장</option>
             <option value="밖">밖</option>
         </select><p></p>
         <br>
-        <label for="duration"> 길이: </label>
+        <label for="duration"> 길이:  </label>
         <select id="duration">
             <option value="any">전체</option>
             <option value="short">15분이하</option>
@@ -109,4 +109,4 @@
         <span><a href="etc.html">더보기</a></span>
     </div>
 </body>
-</html>
+</html>      
