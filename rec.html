@@ -1,28 +1,84 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html>
 <head>
-    <title>Document</title>
+    <title>랜덤 운동 영상</title>
     <link rel="stylesheet" href="top_bottom.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        .video-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .video-container iframe {
+            width: 280px;
+            height: 157.5px;
+        }
+    </style>
 </head>
 <body>
     <div class="top">
         <nav>
-        <ul>
-          <li><a href="exercise.html">운동 영상 추천</a></li>
-          <li><a href="rec02.html">추천영상</a></li>
-          <li><a href="#">인기운동순위</a></li>
-        </ul>
+            <ul>
+                <li><a href="exercise.html">운동 영상 추천</a></li>
+                <li><a href="raex03.html">추천영상</a></li>
+                <li><a href="#">인기운동순위</a></li>
+            </ul>
         </nav>
     </div>
     <div class="container">
-<iframe width="300" height="150" src="https://www.youtube.com/embed/gMaB-fG4u4g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-<p></p>
-<iframe width="300" height="150" src="https://www.youtube.com/embed/gW1E2dzyULM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <div class="video-container"></div>
+        <script>
+        // YouTube Data API 키
+        var apiKey = 'AIzaSyDGBX0s4eOSOGdT26ddOuqrNmpWK_4vq0w';
 
+        // 랜덤으로 운동 영상 검색하기
+        function searchExerciseVideos() {
+            var keyword = '운동';
+            var maxResults = 12; // 가져올 결과 개수
+
+            // YouTube Data API 검색 요청
+            $.get(
+                'https://www.googleapis.com/youtube/v3/search', {
+                    part: 'snippet',
+                    q: keyword,
+                    maxResults: maxResults,
+                    key: apiKey
+                },
+                function (data) {
+                    if (data.items.length > 0) {
+                        var videoContainer = document.querySelector('.video-container');
+                        videoContainer.innerHTML = '';
+
+                        data.items.forEach(function (item) {
+                            var videoId = item.id.videoId;
+                            var videoTitle = item.snippet.title;
+
+                            var iframe = document.createElement('iframe');
+                            iframe.src = 'https://www.youtube.com/embed/' + videoId;
+                            iframe.title = videoTitle;
+                            iframe.frameBorder = '0';
+                            iframe.allowFullscreen = true;
+
+                            var videoWrapper = document.createElement('div');
+                            videoWrapper.appendChild(iframe);
+
+                            videoContainer.appendChild(videoWrapper);
+                        });
+                    }
+                }
+            );
+        }
+        // 페이지 로드 시 영상 검색
+        $(document).ready(function () {
+            searchExerciseVideos();
+        });
+        </script>
     </div>
     <div class="fixed-bar">
         <span><a href="main.html">홈</a></span>
-        <span><a href="exercise.html">운동</a></span>
+        <span><a href="exercise02.html">운동</a></span>
         <span><a href="monthly.html">달력</a></span>
         <span><a href="etc.html">더보기</a></span>
     </div>
