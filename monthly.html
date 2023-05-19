@@ -6,20 +6,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>month page</title>
     <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="top_bottom.css">
+    <script src="index.js"></script>
 </head>
 <body>
-    <div id="topbar">
-        <div class="applogo"><img src=""></div>
-        <div class="settingicon"><img src=""></div>
+    <div class="top-bar">
+        <nav>
+            <ul>
+                <li><a href="#">달력</a></li>
+            </ul>
+        </nav>
     </div>
+    <!-- <div id="infotopbar">먼슬리/달력</div> -->
     <div id="monthwrap">
-        
+        <table class="Calendar">
+            <th>
+                <tr>
+                    <td onclick="prevCalendar();" style="cursor:pointer;">&#60;</td>
+                    <td colspan="5">
+                        <span id="calYear"></span>년
+                        <span id="calMonth"></span>월
+                    </td>
+                    <td onclick="nextCalendar();" style="cursor:pointer;">&#62;</td>
+                </tr>
+                <tr>
+                    <td>일</td>
+                    <td>월</td>
+                    <td>화</td>
+                    <td>수</td>
+                    <td>목</td>
+                    <td>금</td>
+                    <td>토</td>  
+                </tr>
+            </th>
+        </table>
     </div>
-    <div id="bottombar"> 
-        <div class="mainpg">홈</div>
-        <div class="exercisepg">운동</div>
-        <div class="monthpg">달력</div>
-        <div class="addpg">더보기</div>
+    <div class="bottom-bar">
+        <nav>
+            <ul>
+                <li><a href="main.html">홈</a></li>
+                <li><a href="exercise02.html">운동</a></li>
+                <li><a href="monthly.html">달력</a></li>
+                <li><a href="etc.html">더보기</a></li>
+            </ul>
+        </nav>
     </div>
+    
 </body>
 </html>
