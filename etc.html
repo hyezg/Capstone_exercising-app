@@ -9,32 +9,53 @@
             padding: 0;
             font-family: Arial, sans-serif;
         }
+        .container li {
+            list-style: none;
+        }
+        .container a { 
+            text-decoration: none;
+            color: black;
+        }
+        .container #etclist {
+            border: 4px solid #FF6347;
+            border-radius: 10px;
+            border-style: double;
+        }
+        .container ul {
+           padding: 40px;
+        }
     </style>
 </head>
 <body>
-    <div class="top">
+    <div class="top-bar">
         <nav>
             <ul>
-            <li><a href="#">더보기</a></li>
+                <li><a href="#">더보기</a></li>
             </ul>
         </nav>
     </div>
     <div class="container">
-        <ul>
-            <li><a href="#">내 프로필</a></li>
-            <hr>
-            <li><a href="comu01.html">커뮤니티</a></li>
-            <hr>
-            <li><a href="#">설정</a></li>
-            <hr>
-            <li><a href="#">기타</a></li>
-        </ul>
+        <div id="etclist">
+            <ul>
+                <li><a href="profile.html">내 프로필</a></li><br>
+                <hr>
+                <li><a href="comu.html">커뮤니티</a></li><br>
+                <hr>
+                <li><a href="#">설정</a></li><br>
+                <hr>
+                <li><a href="#">기타</a></li><br>
+            </ul>
+        </div>
     </div>
-    <div class="fixed-bar">
-        <span><a href="main.html">홈</a></span>
-        <span><a href="exercise.html">운동</a></span>
-        <span><a href="monthly.html">달력</a></span>
-        <span><a href="etc.html">더보기</a></span>
+    <div class="bottom-bar">
+        <nav>
+            <ul>
+                <li><a href="main.html">홈</a></li>
+                <li><a href="exercise.html">운동</a></li>
+                <li><a href="monthly.html">달력</a></li>
+                <li><a href="etc.html">더보기</a></li>
+            </ul>
+        </nav>
     </div>
 </body>
 </html>
