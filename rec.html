@@ -14,21 +14,25 @@
         .video-container iframe {
             width: 280px;
             height: 157.5px;
+
+        }
+        .video-container {
+            margin-bottom: 70px;
         }
     </style>
 </head>
 <body>
-    <div class="top">
+    <div class="top-bar">
         <nav>
             <ul>
-                <li><a href="exercise.html">운동 영상 추천</a></li>
+                <li><a href="exercise02.html">운동 영상 추천</a></li>
                 <li><a href="raex03.html">추천영상</a></li>
-                <li><a href="#">인기운동순위</a></li>
             </ul>
         </nav>
     </div>
+
     <div class="container">
-    <div class="video-container"></div>
+        <div class="video-container"></div>
         <script>
         // YouTube Data API 키
         var apiKey = 'AIzaSyDGBX0s4eOSOGdT26ddOuqrNmpWK_4vq0w';
@@ -76,11 +80,15 @@
         });
         </script>
     </div>
-    <div class="fixed-bar">
-        <span><a href="main.html">홈</a></span>
-        <span><a href="exercise02.html">운동</a></span>
-        <span><a href="monthly.html">달력</a></span>
-        <span><a href="etc.html">더보기</a></span>
+        <div class="bottom-bar">
+        <nav>
+            <ul>
+                <li><a href="main.html">홈</a></li>
+                <li><a href="exercise02.html">운동</a></li>
+                <li><a href="monthly.html">달력</a></li>
+                <li><a href="etc.html">더보기</a></li>
+            </ul>
+        </nav>
     </div>
 </body>
 </html>
