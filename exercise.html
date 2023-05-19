@@ -49,67 +49,72 @@
         });
     </script>
     <style>
+        form {
+            border: 4px solid #FF6347;
+            border-radius: 10px;
+            padding: 30px;
+            border-style: double;
+        }
         button {
-            background: #FFA500;
+            background: #FF6347;
             color: #fff;
+            font-weight: bold;
             border-color: white;
-            width: 100px; height: 40px;
+            width: 150px; height: 50px;
             border-radius: 10px;
         }
         #result {
             text-align: center;
             text-decoration: none;
-            padding: 50px;
+            padding: 30px;
+            margin-bottom: 30px;
         }
-        .result {
-            border-color: #FFA500;
-        }
+        
     </style>
 </head>
 <body>
-    <div class="top">
+    <div class="top-bar">
         <nav>
             <ul>
-                <li><a href="exercise.html">운동 영상 추천</a></li>
-                <li><a href="rec02.html">추천영상</a></li>
-                <li><a href="#">인기운동순위</a></li>
+                <li><a href="exercise02.html">운동 영상 추천</a></li>
+                <li><a href="raex03.html">추천영상</a></li>
             </ul>
         </nav>
-    </div>
-    <p></p>
+    </div><p></p>
     <div class="container">
-    <form>
-        <label for="location">운동 장소:  </label>
-        <select id="location">
-            <option value="집">집</option>
-            <option value="헬스장">헬스장</option>
-            <option value="밖">밖</option>
-        </select><p></p>
-        <br>
-        <label for="body-part">신체 부위:  </label>
-        <select id="body-part">
-            <option value="상체">상체</option>
-            <option value="하체">하체</option>
-        </select><p></p>
-        <br>
-        <label for="duration"> 길이:  </label>
-        <select id="duration">
-            <option value="any">전체</option>
-            <option value="short">15분 이하</option>
-            <option value="medium">30분</option>
-            <option value="long">1시간 이상</option>
-        </select><p></p>
-        <br>
-        <button type="button" id="search-button">검색</button>
-    </form>
-    </div>
+        <form>
+            <label for="location">~ 운동 장소 ~</label><br><br>
+                <select id="location">
+                    <option value="집">집</option>
+                    <option value="헬스장">헬스장</option>
+                    <option value="밖">밖</option>
+                </select><p></p><br><br><br>
+            <label for="body-part">~ 신체 부위 ~</label><br><br>
+                <select id="body-part">
+                    <option value="상체">상체</option>
+                    <option value="하체">하체</option>
+                </select><p></p><br><br><br>
+            <label for="duration">~ 영상 길이 ~</label><br><br>
+                <select id="duration">
+                    <option value="any">전체</option>
+                    <option value="short">15분 이하</option>
+                    <option value="medium">30분</option>
+                    <option value="long">1시간 이상</option>
+                </select><p></p><br><br><br>
+            <button type="button" id="search-button">검색</button>
+        </form>
         <div id="result"></div>
     </div>
-    <div class="fixed-bar">
-        <span><a href="main.html">홈</a></span>
-        <span><a href="exercise.html">운동</a></span>
-        <span><a href="monthly.html">달력</a></span>
-        <span><a href="etc.html">더보기</a></span>
+
+    <div class="bottom-bar">
+        <nav>
+            <ul>
+                <li><a href="main.html">홈</a></li>
+                <li><a href="exercise02.html">운동</a></li>
+                <li><a href="monthly.html">달력</a></li>
+                <li><a href="etc.html">더보기</a></li>
+            </ul>
+        </nav>
     </div>
 </body>
 </html>      
