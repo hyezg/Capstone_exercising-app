@@ -5,16 +5,24 @@
     <link rel="stylesheet" href="top_bottom.css">
     <style>
    .container .image {
-            text-align: center;
-            margin: 30px;
+        margin: 30px;
+        border: 2px solid #FF6347;
+        padding: 10px;
     } 
+    .container .info {
+        border: 2px solid #FF6347;
+        padding: 20px;
+        font-size: 16px;
+        font-weight: 500;
+    }
     </style>
+
 </head>
 <body>
-    <div class="top">
+    <div class="top-bar">
         <nav>
             <ul>
-            <li><a href="profile.html">내프로필</a></li>
+                <li><a href="exercise.html">프로필</a></li>
             </ul>
         </nav>
     </div>
@@ -24,7 +32,7 @@
             <img src="a.jpeg" alt="아바타" width="200px" height="200px">
         </div>
 
-        <div class="aa">
+        <div class="info">
             <span>이름 : </span><p></p><hr>
             <span>키 : </span><p></p><hr>
             <span>몸무게 : </span><p></p><hr>
@@ -32,11 +40,15 @@
         </div>
     </div>
 
-    <div class="fixed-bar">
-        <span><a href="main.html">홈</a></span>
-        <span><a href="exercise.html">운동</a></span>
-        <span><a href="monthly.html">달력</a></span>
-        <span><a href="etc.html">더보기</a></span>
+    <div class="bottom-bar">
+        <nav>
+            <ul>
+                <li><a href="main.html">홈</a></li>
+                <li><a href="exercise.html">운동</a></li>
+                <li><a href="monthly.html">달력</a></li>
+                <li><a href="etc.html">더보기</a></li>
+            </ul>
+        </nav>
     </div>
 </body>
 </html>
