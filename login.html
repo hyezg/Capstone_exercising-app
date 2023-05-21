@@ -13,8 +13,8 @@
         <div class="login_wrapper">
             <div class="login_logo">Custom Health</div>
             <form class="login_form">
-                <input class="login_text" type="email" id="signUpEmail" placeholder="이메일"/>
-                <input class="login_text" type="password" id="signUpPassword" placeholder="비밀번호"/>
+                <input class="login_text" type="email" id="signInEmail" placeholder="이메일"/>
+                <input class="login_text" type="password" id="signInPassword" placeholder="비밀번호"/>
                 <button class="login_btn" id="signInButton" type="submit" disabled>로그인</button>
             </form>
             <br></br>
@@ -22,7 +22,7 @@
         </div>
     </article>
 
-    <script type="module" src="login_js2.js">
+    <script type="module">
         // Import the functions you need from the SDKs you need
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
         import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-analytics.js";
@@ -46,30 +46,51 @@
         const analytics = getAnalytics(app);
         // 파이어베이스 설정 완료
 
-        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword  } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js";
+        import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js";
 
         const auth = getAuth();
 
-        document.getElementById('signUpButton').addEventListener('click', (event) => {
+        document.getElementById('signInButton').addEventListener('click', (event) => {
             event.preventDefault()
-            const signUpEmail=document.getElementById('signUpEmail').value
-            const signUpPassword=document.getElementById('signUpPassword').value
-
-            createUserWithEmailAndPassword(auth, signUpEmail, signUpPassword)
+            const email=document.getElementById('signInEmail').value
+            const password=document.getElementById('signInPassword').value
+            signInWithEmailAndPassword(auth, email, password)
                 .then((userCredential) => {
-                    console.log(userCredential)
                     // Signed in
                     const user = userCredential.user;
                     // ...
                 })
                 .catch((error) => {
-                    console.log('error')
+                    console.log('로그인 실패')
                     const errorCode = error.code;
                     const errorMessage = error.message;
-                    // ..
+                    alert("로그인 실패");
                 });
-
         })
+    </script>
+    <script>
+        const loginId = document.getElementById('signInEmail');
+        const loginPw = document.getElementById('signInPassword');
+        const loginBtn = document.getElementById('signInButton');
+
+        function color() {
+            if((loginId.value.length>0 && loginId.value.indexOf("@")!==-1) 
+                && loginPw.value.length>=5){
+                loginBtn.style.backgroundColor = "tomato";
+                loginBtn.disabled = false;
+            }else{
+                loginBtn.style.backgroundColor = "rgb(255, 170, 155)";
+                loginBtn.disabled = true;
+            }
+        }
+
+        function moveToMain(){
+            location.replace("main.html");
+        }
+
+        loginId.addEventListener('keyup', color);
+        loginPw.addEventListener('keyup', color);
+        loginBtn.addEventListener('click',moveToMain);
     </script>
 </body>
 </html>

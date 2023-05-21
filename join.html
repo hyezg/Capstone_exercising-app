@@ -16,7 +16,7 @@
                 <input class="login_text" type="email" id="signUpEmail" placeholder="이메일"/>
                 <input class="login_text" type="text" id="Username" placeholder="성명"/>
                 <input class="login_text" type="password" id="signUpPassword" placeholder="비밀번호"/>
-                <button class="login_btn" id="signInButton" type="submit" disabled>가입</button>
+                <button class="login_btn" id="signUpButton" type="submit" disabled>가입</button>
             </form>
             <p>계정이 있으신가요?<a class = "login_bottom" href="login.html" > 로그인 </a></p>
         </div>
@@ -46,29 +46,30 @@
         const analytics = getAnalytics(app);
         // 파이어베이스 설정 완료
 
-        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword  } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js";
+        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js";
 
         const auth = getAuth();
 
-
-        document.getElementById('signInButton').addEventListener('click', (event) => {
+        document.getElementById('signUpButton').addEventListener('click', (event) => {
             event.preventDefault()
-            const signInEmail=document.getElementById('signInEmail').value
-            const signInPassword=document.getElementById('signInPassword').value
-            signInWithEmailAndPassword(auth, signInEmail, signInPassword)
+            const email=document.getElementById('signUpEmail').value
+            const password=document.getElementById('signUpPassword').value
+
+            createUserWithEmailAndPassword(auth, email, password)
                 .then((userCredential) => {
                     // Signed in
-                    console.log(userCredential)
                     const user = userCredential.user;
                     // ...
                 })
                 .catch((error) => {
-                    console.log('로그인 실패')
+                    consol.log('error')
                     const errorCode = error.code;
                     const errorMessage = error.message;
+                    // ..
                 });
 
         })
+
 
         console.log('hello world')
         console.log(app)
