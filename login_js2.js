@@ -7,7 +7,7 @@ const loginBtn = document.getElementById('signInButton');
 function color() {
     if((loginId.value.length>0 && loginId.value.indexOf("@")!==-1) 
         && loginPw.value.length>=5){
-        loginBtn.style.backgroundColor = "#0095F6";
+        loginBtn.style.backgroundColor = "tomato";
         loginBtn.disabled = false;
     }else{
         loginBtn.style.backgroundColor = "rgb(255, 170, 155)";
