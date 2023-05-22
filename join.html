@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>login</title>
     <link rel="stylesheet" type="text/css" href="login_style.css">
-    
 </head>
 <body>
     <article>
@@ -16,12 +15,11 @@
                 <input class="login_text" type="email" id="signUpEmail" placeholder="이메일"/>
                 <input class="login_text" type="text" id="Username" placeholder="성명"/>
                 <input class="login_text" type="password" id="signUpPassword" placeholder="비밀번호"/>
-                <button class="login_btn" id="signUpButton" type="submit" disabled>가입</button>
+                <button class="login_btn" id="signUpButton" type="submit">가입</button>
             </form>
             <p>계정이 있으신가요?<a class = "login_bottom" href="login.html" > 로그인 </a></p>
         </div>
     </article>
-
     <script type="module">
         // Import the functions you need from the SDKs you need
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
@@ -32,37 +30,43 @@
         // Your web app's Firebase configuration
         // For Firebase JS SDK v7.20.0 and later, measurementId is optional
         const firebaseConfig = {
-        apiKey: "AIzaSyDoo8VPeD5-bb1day25uip3UYDm5nXkcVE",
-        authDomain: "capstone-aefbf.firebaseapp.com",
-        projectId: "capstone-aefbf",
-        storageBucket: "capstone-aefbf.appspot.com",
-        messagingSenderId: "627442023379",
-        appId: "1:627442023379:web:ccd134b08e2aadaea20d26",
-        measurementId: "G-86QYK1RENM"
-         };
+            apiKey: "AIzaSyDoo8VPeD5-bb1day25uip3UYDm5nXkcVE",
+            authDomain: "capstone-aefbf.firebaseapp.com",
+            projectId: "capstone-aefbf",
+            storageBucket: "capstone-aefbf.appspot.com",
+            messagingSenderId: "627442023379",
+            appId: "1:627442023379:web:ccd134b08e2aadaea20d26",
+            measurementId: "G-86QYK1RENM"
+        };
 
         // Initialize Firebase
         const app = initializeApp(firebaseConfig);
         const analytics = getAnalytics(app);
-        // 파이어베이스 설정 완료
 
-        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js";
+        function moveToBack(){
+            alert("회원가입이 완료되었습니다.");
+            location.replace("join.html");
+        }
+
+        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword  } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js";
 
         const auth = getAuth();
 
         document.getElementById('signUpButton').addEventListener('click', (event) => {
             event.preventDefault()
-            const email=document.getElementById('signUpEmail').value
-            const password=document.getElementById('signUpPassword').value
+            const signUpEmail=document.getElementById('signUpEmail').value
+            const signUpPassword=document.getElementById('signUpPassword').value
 
-            createUserWithEmailAndPassword(auth, email, password)
+            createUserWithEmailAndPassword(auth, signUpEmail, signUpPassword)
                 .then((userCredential) => {
+                    console.log(userCredential)
                     // Signed in
                     const user = userCredential.user;
                     // ...
+                    moveToBack();
                 })
                 .catch((error) => {
-                    consol.log('error')
+                    console.log('error')
                     const errorCode = error.code;
                     const errorMessage = error.message;
                     // ..
@@ -70,10 +74,26 @@
 
         })
 
-
         console.log('hello world')
         console.log(app)
+
+        const loginId = document.getElementById('signUpEmail');
+        const loginPw = document.getElementById('signUpPassword');
+        const loginBtn = document.getElementById('signUpButton');
+
+        function color() {
+            if((loginId.value.length>0 && loginId.value.indexOf("@")!==-1) 
+                && loginPw.value.length>=5){
+                loginBtn.style.backgroundColor = "tomato";
+                loginBtn.disabled = false;
+            }else{
+                loginBtn.style.backgroundColor = "rgb(255, 170, 155)";
+                loginBtn.disabled = true;
+            }
+        }
+
+        loginId.addEventListener('keyup', color);
+        loginPw.addEventListener('keyup', color);
     </script>
-    <script src="login_js2.js"></script>
 </body>
 </html>
