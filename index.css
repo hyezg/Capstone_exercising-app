@@ -24,6 +24,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+    background: #fff5f53b;
 }
 ol, ul {
 	list-style: none;
@@ -36,105 +37,135 @@ q:before, q:after {
 	content: '';
 	content: none;
 }
-table {
+/* table {
 	border-collapse: collapse;
 	border-spacing: 0;
-}
+} */
 
-#topbar { /*applogo, settingicon 존재*/
+/*applogo, settingicon 존재*/
+#topbar { 
     height: 50px;
-    background-color:#FF6347;
     justify-content: space-between;
     display: flex;
+    background-color: rgb(245, 244, 244);
+    position: fixed; 
+    display: flex;
+    top: 0; left: 0;
+    width: 100%;
+    margin-bottom: 30px;
+}
+#topbar h1{
+    color: tomato;
+    font-size: 22px;
+    margin: 0;
+    align-items: center;
+    padding: 10px;
 }
 
-#applogo    {
-    border: 2px solid black;
-    width: 50px;
+#applogo   {
     display: flex;
+    display: inline;
+}
+#applogo img{
+    width: 50px; height: 50px;
 }
 #settingicon   {
-    border: 2px solid black;
-    width: 50px;
     display: flex;
+    display: inline;
+    padding: 5px;
 }
-
-
+#settingicon img{
+    width: 40px;
+    height: 40px;
+}
+    
+/* 한마디+날짜 */
 #infowrap{
-    border: 3px solid #FF6347;
+    border: 1px solid rgba(255, 99, 71, 0.906);
+    box-shadow: 2px 2px 2px rgba(255, 99, 71, 0.906);
     border-radius: 10px;
-    background-color: seashell;
     padding: 10px;
-    margin-top: 20px;
-    margin-left: 20px;
-    margin-right: 20px;
+    margin: 20px;
+    margin-top: 70px;
+    margin-bottom: 25px;
     text-align: center;
 }
-p {
-    font-size: 30px;
-    font-weight: 400;
+#infowrap p {
+    font-size: 15px;
+    font-weight: 600;
     padding: 10px;
 }
+
 #current_date{
     font-size: 20px;
     font-weight: 400;
     padding: 10px;
 }
 
+/* 타이머 */
+#timer{
+    border: 1px solid rgba(255, 99, 71, 0.906);
+    box-shadow: 2px 2px 1px rgba(255, 99, 71, 0.906);
+    border-radius: 10px;
+    padding: 15px;
+    margin: 20px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+.timerset{
+    font-size: 35px;
+    font-weight: 500;
+    padding-bottom: 18px;
+}
+#timer .timer_start, .timer_stop {
+    border: 1px solid rgba(255, 99, 71, 0.906);
+    background: rgba(255, 113, 87, 0.906);
+    box-shadow: 1px 1px 1px rgba(255, 99, 71, 0.906);
+    border-radius: 5px;
+    color: #fff; font-weight: 600;
+    height:30px;
+    width:80px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
 
+
+/* 아바타 */
 #abatawrap{
-    border: 3px solid #FF6347;
+    border: 1px solid rgba(255, 99, 71, 0.906);
+    box-shadow: 2px 2px 2px rgba(255, 99, 71, 0.906);
     border-radius: 10px;
     padding: 30px;
     margin: 20px;
-    height: 300px;
-    background-color: seashell;
+    margin-bottom: 25px;
     text-align: center;
     height: auto;
 }
 #abatawrap .abatainfo{
-    font-size: 18;
+    font-size: 16px;
     font-weight: 500;
-    /* width: 200px; height: 200px; */
     display: inline-block;
-    padding: 20px;
+    padding: 15px;
     text-align: center;
 }
 #abatawrap img {
-    width: 150px;
-    border: 2px solid #FF6347;
-   /*사진 중앙배열 해보기*/
-}
-
-
-#timer{
-    padding: 10px;
-}
-.timerset{
-    font-size: 35px;
-    font-weight: 900;
-}
-#timer .timer_start, .timer_stop {
-    background: #FF6347;
-    color: #fff;
-    border: 3px solid #fff;
+    width: 100px;
     border-radius: 5px;
 }
 
-
+/* 미션 */
 #dailychallengewrap{
-    border: 3px solid #FF6347;
+    border: 1px solid rgba(255, 99, 71, 0.906);
+    box-shadow: 2px 2px 2px rgba(255, 99, 71, 0.906);
     border-radius: 10px;
-    padding: 10px;
+    padding: 15px;
     margin: 20px;
-    margin-bottom: 70px;
+    margin-bottom: 80px;
     text-align: center;
-    background-color: seashell;
-    height: auto;
+    /* height: auto; */
 }
 
 .bottom-bar {
-    background-color: #FF6347;
     position: fixed;
     bottom: 0; left: 0;
     width: 100%; height: 30px;
@@ -142,23 +173,32 @@ p {
     justify-content: space-around;
     align-items: center;
     padding: 10px;
-    margin-top: 20px;
-  }
-  
-/* #bottombar{
-    position: fixed;
-    background-color: lightsalmon;
-    height: 50px;
+    margin-top: 70px;
+    background: rgb(245, 244, 244);
+    border-radius: 20px 20px 0 0 ;
+}
+nav ul {
+    list-style: none;
+    margin: 0; padding: 0;
     display: flex;
-} */
+    text-decoration: none;
+}
+nav li {
+    margin: 0 20px;
+    display: flex;
+}
+.bottom-bar nav a {
+    color: #7a7878 ;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 15px;
+}
 .bottom_choice{
     display: inline-block;
     padding: 20px;
     font-size: medium;
     font-weight: 400;
-
 }
-
 
 #infotopbar{
     border: 1px solid grey;
@@ -170,6 +210,8 @@ p {
     color: black;
 }
 
+
+
 #community_middlebar{
     border: 1px solid grey;
     padding: 10px;
@@ -179,21 +221,21 @@ p {
     color: black;
 }
 .community_choice{
-    
     height: 30px;
     width:200px;
     display: inline-block;
 }
 
 #rankingwrap{
-    border:1px solid grey;
     padding: 10px;
     background-color: white;
+    margin-top: 50px;
+    margin-bottom: 50px;
     
 }
 #ranking{
-    border: 1px solid grey;
-    border-radius: 10px;
+    border: 2px solid rgba(255, 99, 71, 0.906);
+    /* box-shadow: 2px 2px 2px rgba(255, 99, 71, 0.715); */
     padding: 30px;
     background-color: seashell;
     margin-left: 30px;
@@ -202,14 +244,15 @@ p {
 }
 .rankinginfo{
     display: inline-block;
-    border:1px solid grey;
+    /* border:1px solid grey; */
 }
 
 
 #monthwrap{
-    border: 3px solid #FF6347;
-    margin: 30px; margin-top: 70px; margin-bottom: 70px;
-    height: 800px;
+    border: 2px solid rgba(255, 99, 71, 0.906);
+    border-radius: 10px;
+    margin: 35px; margin-top: 70px; margin-bottom: 70px;
+    height: 600px;
     background-color: seashell;
 }
 .Calendar{
