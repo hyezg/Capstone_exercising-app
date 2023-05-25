@@ -1,4 +1,27 @@
+html, body, div, span, applet, object, iframe, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
 /* * { margin: 0; padding: 0;} */
+  body {
+    background: #fff5f53b;
+  }
 
   ul {
     text-align: center;
@@ -6,7 +29,7 @@
   }
   /* bar */
   .top-bar {
-    background-color: #FF6347;
+  background-color: rgb(245, 244, 244); 
     position: fixed;
     top: 0; left: 0;
     width: 100%;
@@ -15,9 +38,19 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px;
-  }
+    }
+    .top-bar a {
+      color:#7a7878;
+    }
+    /* .top-bar h3 {
+      color: #fff;
+      font-weight: 700;
+      font-size: 20px;
+      padding: 10px;
+
+    } */
   .bottom-bar {
-    background-color: #FF6347;
+    background-color: rgb(245, 244, 244);
     position: fixed;
     bottom: 0; left: 0;
     width: 100%; height: 30px;
@@ -25,7 +58,11 @@
     justify-content: space-around;
     align-items: center;
     padding: 10px;
-    margin-top: 100px;
+    margin-top: 50px;
+    border-radius: 30px;
+    /*border: 1px solid #fc7664;*/
+    border-radius: 20px 20px 0 0;
+    margin: 0;
   }
   nav ul {
     list-style: none;
@@ -39,10 +76,10 @@
   }
    /*bar 글씨*/
   nav a {
-    color: #fff;
+    color: #7a7878;
     text-decoration: none;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 15px;
   }
 
   .container {
@@ -51,7 +88,12 @@
     font-weight: 500;
     padding: 10px;
     margin-top: 70px;
-    /*??**/
+    height: auto;
+}
+
+.container .video-container {
+  background: #ffd8d8a8;
+  padding: 0;
 }
 
  /* .fixed-bar {

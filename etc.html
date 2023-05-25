@@ -1,28 +1,52 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>더보기</title>
     <link rel="stylesheet" href="top_bottom.css">
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
-        .container li {
+        /* .container li {
             list-style: none;
-        }
-        .container a { 
+        } */
+        /* .container a { 
             text-decoration: none;
             color: black;
-        }
+        } */
         .container #etclist {
-            border: 4px solid #FF6347;
-            border-radius: 10px;
-            border-style: double;
+           margin-top: 50px;
+           margin: 20px;
+           display: inline-block;
+
         }
         .container ul {
            padding: 40px;
+        }
+        .etcblock {
+            padding: 15px;
+            /* margin: 10px; */
+            border: 2px solid rgba(255, 99, 71, 0.715);
+            box-shadow: 2px 2px 1px rgba(255, 99, 71, 0.715);
+            margin: 20px;
+            border-radius: 10px;
+        }
+        .etcblock a {
+            color: #7a7878;
+            text-decoration: none;
+            font-weight: 700;
+            padding: 50px;
+        }
+        .container {
+            padding: 0;
+            padding-top: 10px;
+        }
+        
+        .top-bar li:first-child > a {
+            color:tomato;
+        }
+        .bottom-bar li:nth-child(4) > a  {
+            color: tomato;
         }
     </style>
 </head>
@@ -36,15 +60,19 @@
     </div>
     <div class="container">
         <div id="etclist">
-            <ul>
-                <li><a href="profile.html">내 프로필</a></li><br>
-                <hr>
-                <li><a href="comu.html">커뮤니티</a></li><br>
-                <hr>
-                <li><a href="#">설정</a></li><br>
-                <hr>
-                <li><a href="#">기타</a></li><br>
-            </ul>
+            <div class="etcblock">
+                <a href="profile.html">내 프로필</a>
+            </div>
+            <div class="etcblock">
+                <a href="comu.html">커뮤니티</a>
+            </div>
+            <div class="etcblock">
+                <a href="#">설정</a>
+            </div>
+            <div class="etcblock">
+                <a href="#">기타</a>
+            </div>
+           
         </div>
     </div>
     <div class="bottom-bar">

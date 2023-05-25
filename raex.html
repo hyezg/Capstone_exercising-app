@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+    meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>랜덤 운동 영상</title>
     <link rel="stylesheet" href="top_bottom.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -19,6 +23,12 @@
         .video-container {
             margin-bottom: 70px;
         }
+        .top-bar li:nth-child(2) > a {
+            color:tomato;
+        }
+        .bottom-bar li:nth-child(2) > a  {
+            color: tomato;
+        }
     </style>
 </head>
 <body>
@@ -30,7 +40,6 @@
             </ul>
         </nav>
     </div>
-
     <div class="container">
         <div class="video-container"></div>
         <script>
