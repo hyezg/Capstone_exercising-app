@@ -45,24 +45,31 @@
 
         function moveToBack(){
             alert("회원가입이 완료되었습니다.");
-            location.replace("join.html");
+            location.replace("registerForm.html");
         }
 
-        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword  } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js";
-
+        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js";
+    
         const auth = getAuth();
 
         document.getElementById('signUpButton').addEventListener('click', (event) => {
             event.preventDefault()
             const signUpEmail=document.getElementById('signUpEmail').value
             const signUpPassword=document.getElementById('signUpPassword').value
+            const userName=document.getElementById('Username').value
 
             createUserWithEmailAndPassword(auth, signUpEmail, signUpPassword)
                 .then((userCredential) => {
                     console.log(userCredential)
                     // Signed in
                     const user = userCredential.user;
-                    // ...
+                    // ..
+                    var userInfo = {
+                    id : signUpEmail,
+                    name : userName
+                    };
+                    
+                    localStorage.setItem("userInfo", JSON.stringify(userInfo));
                     moveToBack();
                 })
                 .catch((error) => {

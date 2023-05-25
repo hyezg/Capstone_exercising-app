@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="formStyle.css">
+  <title>Document</title>
+</head>
+<body>
+    <article>
+        <div class="form_wrapper">
+            <div class="form_title">정보 입력</div>
+            <hr>
+            <p>회원가입에 필요한 정보를 입력합니다.</p>
+            <br>
+            <form>
+                <p class="info">닉네임</p>
+                <input class="input_text" type="text" id="nickName" placeholder="예. 홍길동 "></input>
+                <p class="info">당신의 MBTI는 무엇입니까?</p>
+                <select id="mbti">
+                    <option>MBTI</option>
+                    <option>INTP</option>
+                    <option>INTJ</option>
+                    <option>INFP</option>
+                    <option>INFJ</option>
+                    <option>ISTP</option>
+                    <option>ISTJ</option>
+                    <option>ISFP</option>
+                    <option>ISFJ</option>
+                    <option>ENTP</option>
+                    <option>ENTJ</option>
+                    <option>ENFP</option>
+                    <option>ENFJ</option>
+                    <option>ESTP</option>
+                    <option>ESTJ</option>
+                    <option>ESFP</option>
+                    <option>ESFJ</option>
+                </select>
+                <p class="info">몸무게</p>
+                <input class="input_text" type="text" id="weight" placeholder="kg"></input>
+                <p class="info">키</p>
+                <input class="input_text" type="text" id="height" placeholder="cm"></input>
+                <p class="info">생년월일</p>
+                <input class="input_text" type="text" id="birth" placeholder="YYYYMMDD">
+                <input type="submit" id="button" value="회원가입 완료"></input>
+            </form>
+        </div>
+    </article>
+
+  <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-storage.js"></script>
+
+  <script>
+      const firebaseConfig = {
+            apiKey: "AIzaSyDoo8VPeD5-bb1day25uip3UYDm5nXkcVE",
+            authDomain: "capstone-aefbf.firebaseapp.com",
+            databaseURL: "https://capstone-aefbf-default-rtdb.firebaseio.com",
+            projectId: "capstone-aefbf",
+            storageBucket: "capstone-aefbf.appspot.com",
+            messagingSenderId: "627442023379",
+            appId: "1:627442023379:web:ccd134b08e2aadaea20d26",
+            measurementId: "G-86QYK1RENM"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+
+        const { id, name } = JSON.parse(localStorage.getItem("userInfo"));
+        console.log(id);
+
+        document.getElementById('button').addEventListener('click', (event) => {
+            event.preventDefault()
+            db.collection('users').doc(id).set({
+                이름 : name,
+                닉네임 : $('#nickName').val(),
+                mbti : $('#mbti').val(),
+                키 : $('#height').val(),
+                몸무게 : $('#weight').val(),
+                생년월일 : $('#birth').val()
+            })
+            .then((result)=>{
+                window.location.href = 'main.html'
+            }).catch((error)=>{
+                console.log('error')
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                // ..
+            })
+        });
+
+        localStorage.removeItem("userInfo");
+    
+   </script>
+</body>
+</html>
