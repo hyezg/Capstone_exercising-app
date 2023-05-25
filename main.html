@@ -6,20 +6,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>main page</title>
     <link rel="stylesheet" href="./index.css">
-    <link rel="stylesheet" href="top_bottom.css">
+    <style>
+        .bottom-bar li:first-child > a  {
+            color: tomato;
+        }
+    </style>
+    <script>
+        // 오늘의 한 마디 목록
+        var sayings = [
+            "오늘은 행운이 가득한 날입니다.",
+            "자신을 믿고 당신의 꿈을 이루세요.",
+            "감사의 마음을 잊지 말고 살아가세요.",
+            "어제보다 더 나은 하루가 되길 바랍니다.",
+            "오늘은 웃는 얼굴로 시작해보세요."
+        ];
+    
+        // 오늘의 한 마디 랜덤 선택
+        var randomSay = Math.floor(Math.random() * sayings.length);
+        var todaysSaying = sayings[randomSay];
+    
+        // 페이지 로드 시 오늘의 한 마디 출력
+        window.onload = function() {
+        var sayingElement = document.getElementById("todays-saying");
+        sayingElement.textContent = todaysSaying;
+        };
+   
+
+        // 오늘의 한 마디 목록
+        var missions = [
+            "스쿼트 몇개",
+            "상체 1시간",
+            "하체 1시간",
+        ];
+/*
+        // 오늘의 한 마디 랜덤 선택
+        var randomMission = Math.floor(Math.random() * missions.length);
+        var todaysMissins = missions[randomMission];
+
+        // 페이지 로드 시 오늘의 한 마디 출력
+        window.onload = function g() {
+        var missionsElement = document.getElementById("todays-missions");
+        missionsElement.textContent = todaysMissions;
+        };
+*/
+    </script>
 </head>
 <body>
     <div id="topbar">
         <div id="applogo">
-            <img src="Eicon.png" width="50px" alt="앱로고">
+            <img src="logo.png" width="50px" alt="앱로고">
         </div>
+        <h1>Custom Health</h1>
         <div id="settingicon">
-            <img src="a.jpeg" width="50px" alt="세팅아이콘">
+            <img src="setting.png" width="50px" alt="세팅아이콘">
         </div>
     </div>
 
     <div id="infowrap">
-        <p>오늘도 파이팅</p>
+        <p id="todays-saying"></p>
         <div id="current_date">
             <script>
                 date = new Date().toLocaleDateString();
@@ -27,35 +71,31 @@
             </script>
         </div>
     </div>
-
+    <div id="timer">
+        <div class="timerset">
+            <span class="time">00 : 00 : 00</span></div>
+        <input class="timer_start" type="button" value="시작">
+        <input class="timer_stop" type="button" value="종료">
+    </div>
     <div id="abatawrap">
         <div class="abatainfo">
+            <img src="abata.jpg" alt="아바타 이미지">
+        </div>
+        <div class="abatainfo">
             <ul>
-                <li>이름 : 지수</li><br>
-                <li>몸무게/키 : 65kg / 165cm</li><br>
-                <li>MBTI : ENFP</li><br>
-                <li>목표  : -10kg</li><br>
+                <li>지수</li><br>
+                <li>65kg / 165cm</li><br>
+                <li>ENFP</li><br>
+                <li>-10kg</li><br>
             </ul>
         </div>
-      
-        <div class="abatainfo">
-            <img src="Ry.jpg" alt="라이언">
-        </div>
 
-        <div id="timer">
-            <span class="timerset">00:00:00</span>
-            <input class="timer_start" type="button" value="시작">
-            <input class="timer_stop" type="button" value="종료">
-        </div>
     </div>
 
     <div id="dailychallengewrap">
         <div id="dailychallengeinfo">
-            <p>[오늘의 달성 운동]</p>
-            <p>만보기 8000보 채우기</p>
-        </div>
-        <div class="pedometer">
-            <h3>만보기 현황 알려주는 그림 형태 띄우기</h3>
+            <h2>~오늘의 운동~</h2><br>
+            <p id="todays-missions"></p>
         </div>
     </div>
 
