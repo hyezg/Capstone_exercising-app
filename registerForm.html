@@ -71,17 +71,16 @@
         const db = firebase.firestore();
 
         const { id, name } = JSON.parse(localStorage.getItem("userInfo"));
-        console.log(id);
 
         document.getElementById('button').addEventListener('click', (event) => {
             event.preventDefault()
             db.collection('users').doc(id).set({
-                이름 : name,
-                닉네임 : $('#nickName').val(),
+                name : name,
+                nickname : $('#nickName').val(),
                 mbti : $('#mbti').val(),
-                키 : $('#height').val(),
-                몸무게 : $('#weight').val(),
-                생년월일 : $('#birth').val()
+                height : $('#height').val(),
+                weight : $('#weight').val(),
+                birth : $('#birth').val()
             })
             .then((result)=>{
                 window.location.href = 'main.html'
@@ -93,7 +92,6 @@
             })
         });
 
-        localStorage.removeItem("userInfo");
     
    </script>
 </body>

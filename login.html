@@ -68,6 +68,11 @@
                 console.log(userCredential)
                 const user = userCredential.user;
                 // ...
+                var userInfo = {
+                    id : signInEmail
+                };
+                    
+                localStorage.setItem("userInfo", JSON.stringify(userInfo));
                 moveToMain();
             })
             .catch((error) => {
