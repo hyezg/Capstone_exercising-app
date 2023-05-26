@@ -2,7 +2,6 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <html lang="ko">
 <head>
     <title>프로필</title>
@@ -23,7 +22,26 @@
             color: tomato;
         }
     </style>
-
+   <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-auth.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-firestore.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-storage.js"></script>
+ 
+   <script>
+       const firebaseConfig = {
+             apiKey: "AIzaSyDoo8VPeD5-bb1day25uip3UYDm5nXkcVE",
+             authDomain: "capstone-aefbf.firebaseapp.com",
+             databaseURL: "https://capstone-aefbf-default-rtdb.firebaseio.com",
+             projectId: "capstone-aefbf",
+             storageBucket: "capstone-aefbf.appspot.com",
+             messagingSenderId: "627442023379",
+             appId: "1:627442023379:web:ccd134b08e2aadaea20d26",
+             measurementId: "G-86QYK1RENM"
+         };
+ 
+         // Initialize Firebase
+       firebase.initializeApp(firebaseConfig);
+   </script>
 </head>
 <body>
     <div class="top-bar">
@@ -40,9 +58,9 @@
         </div>
 
         <div class="info">
-            <span>이름 : </span><p></p><hr>
-            <span>키 : </span><p></p><hr>
-            <span>몸무게 : </span><p></p><hr>
+            <span>이름 : </span><span id="name"></span><hr>
+            <span>키 : </span><span id="height"></span><hr>
+            <span>몸무게 : </span><span id="weight"></span><hr>
             <span>목표 : </span><p></p><hr>
         </div>
     </div>
@@ -57,5 +75,22 @@
             </ul>
         </nav>
     </div>
+    <script>
+
+        const db = firebase.firestore();
+
+        const { id, name } = JSON.parse(localStorage.getItem("userInfo"));
+        
+        const user = db.collection("users").doc(id);
+        
+        user.get().then((doc)=>{
+        if(doc.exists){
+            console.log(doc.data().name);
+            document.getElementById("name").innerHTML = doc.data().name;
+            document.getElementById("weight").innerHTML = doc.data().weight+"kg";
+            document.getElementById("height").innerHTML = doc.data().height+"cm";
+        }
+        })
+    </script>
 </body>
 </html>
