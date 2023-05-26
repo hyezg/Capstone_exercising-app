@@ -17,7 +17,27 @@
                 <input class="login_text" type="password" id="signInPassword" placeholder="비밀번호"/>
                 <button class="login_btn" id="signInButton" type="submit">로그인</button>
             </form>
-            <br></br>
+            <a href="javascript:kakaoLogin();"><img src="https://www.gb.go.kr/Main/Images/ko/member/certi_kakao_login.png" style="width:130px;padding: 10px;"></a>
+            <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+            <script>
+                //da92ae9710c42daef15bb57101f92401
+                window.Kakao.init("da92ae9710c42daef15bb57101f92401");
+                function kakaoLogin(){
+                    window.Kakao.Auth.login({
+                        scope:'profile,account_email,gender',
+                        success:function(authObj){
+                            console.log(authObj);
+                            window.Kakao.API.request({
+                                url:'/v2/user/me',
+                                success:res=>{
+                                    const kakao_account=res.kakao_account;
+                                    console.log(kakao_account);
+                                }
+                            });
+                        }
+                    })
+                }
+            </script>
             <p>계정이 없으신가요?<a class = "login_bottom" href="join.html" > 가입하기</a></p>
         </div>
     </article>
