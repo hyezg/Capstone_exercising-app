@@ -158,7 +158,7 @@
         const user = firebase.auth().currentUser;
         if(user !== null) {
             const email = user.email;
-        }
+        } //이거 안 됨
         db.collection("users").doc(email)
         .update()
     </script>
