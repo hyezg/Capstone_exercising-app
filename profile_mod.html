@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>month page</title>
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="top_bottom.css">
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <style>
+        .form_wrapper{
+            padding: 30px;
+        }
+
+        .form_title{
+            margin :30px 0 30px 0;
+            color:#262626;
+            font-family: 'Lobster', cursive;
+            font-size: 40px;
+            font-weight: 100px;
+        }
+
+        .info{
+            padding: 3px;
+            font-size: 14px;
+        }
+
+        .input_text{
+            width:93%;
+            height:40px;
+            margin: 3px 0 20px 0 ;
+            padding: 0 10px 0 10px;
+            background-color:#FAFAFA;
+            border: 1px solid #DBDBDB;
+            border-radius: 3px;
+            
+        }
+
+        .input_text:focus{
+            outline: 1px solid #a8a8a8;
+        }
+
+        .input_text::placeholder{
+            color:#8E8E8E;
+        }
+
+        .input_text::value{
+            color:#262626;
+        }
+
+        #button{
+            width:100%;
+            height:33px;
+            margin: 10px 0 25px 0;
+            color:white;
+            background-color: tomato;
+            border-radius: 5px;
+            border-style: none;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        #mbti{
+            width:100%;
+            height:40px;
+            margin: 3px 0 20px 0;
+            color:#494949;
+            background-color: #FAFAFA;
+            cursor: pointer;
+            border: 1px solid #DBDBDB;
+            border-radius: 3px;
+        }
+    </style>
+
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-storage.js"></script>
+
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyDoo8VPeD5-bb1day25uip3UYDm5nXkcVE",
+            authDomain: "capstone-aefbf.firebaseapp.com",
+            databaseURL: "https://capstone-aefbf-default-rtdb.firebaseio.com",
+            projectId: "capstone-aefbf",
+            storageBucket: "capstone-aefbf.appspot.com",
+            messagingSenderId: "627442023379",
+            appId: "1:627442023379:web:ccd134b08e2aadaea20d26",
+            measurementId: "G-86QYK1RENM"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+        const db = firebase.firestore();
+    </script>
+</head>
+<body>
+    <div class="top-bar">
+        <nav>
+            <ul>
+                <li><a href="#">프로필 수정</a></li>
+            </ul>
+        </nav>
+    </div>
+    <article>
+        <div class="form_wrapper">
+            <div class="form_title">프로필 수정</div>
+            <hr>
+            <br>
+            <form>
+                <p class="info">닉네임</p>
+                <input class="input_text" type="text" id="nickName" placeholder="예. 홍길동 "></input>
+                <p class="info">당신의 MBTI는 무엇입니까?</p>
+                <select id="mbti">
+                    <option>MBTI</option>
+                    <option>INTP</option>
+                    <option>INTJ</option>
+                    <option>INFP</option>
+                    <option>INFJ</option>
+                    <option>ISTP</option>
+                    <option>ISTJ</option>
+                    <option>ISFP</option>
+                    <option>ISFJ</option>
+                    <option>ENTP</option>
+                    <option>ENTJ</option>
+                    <option>ENFP</option>
+                    <option>ENFJ</option>
+                    <option>ESTP</option>
+                    <option>ESTJ</option>
+                    <option>ESFP</option>
+                    <option>ESFJ</option>
+                </select>
+                <p class="info">몸무게</p>
+                <input class="input_text" type="text" id="weight" placeholder="kg"></input>
+                <p class="info">키</p>
+                <input class="input_text" type="text" id="height" placeholder="cm"></input>
+                <p class="info">생년월일</p>
+                <input class="input_text" type="text" id="birth" placeholder="YYYYMMDD">
+                <input type="submit" id="button" value="프로필 수정 완료"></input>
+            </form>
+        </div>
+    </article>
+
+    <div class="bottom-bar">
+        <nav>
+            <ul>
+                <li><a href="main.html">홈</a></li>
+                <li><a href="exercise.html">운동</a></li>
+                <li><a href="monthly.html">달력</a></li>
+                <li><a href="etc.html">더보기</a></li>
+            </ul>
+        </nav>
+    </div>
+    <script>
+        const user = firebase.auth().currentUser;
+        if(user !== null) {
+            const email = user.email;
+        }
+        db.collection("users").doc(email)
+        .update()
+    </script>
+</body>
+</html>
