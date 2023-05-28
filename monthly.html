@@ -7,12 +7,14 @@
     <title>month page</title>
     <link rel="stylesheet" href="./index.css">
     <link rel="stylesheet" href="top_bottom.css">
-    <script src="index.js"></script>
+    <link rel="stylesheet" href="calendar.css">
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
     <style>
         .bottom-bar li:nth-child(3) > a  {
             color: tomato;
         }
     </style>
+
 </head>
 <body>
     <div class="top-bar">
@@ -24,27 +26,25 @@
     </div>
     <!-- <div id="infotopbar">먼슬리/달력</div> -->
     <div id="monthwrap">
-        <table class="Calendar">
-            <th>
-                <tr>
-                    <td onclick="prevCalendar();" style="cursor:pointer;">&#60;</td>
-                    <td colspan="5">
-                        <span id="calYear"></span>년
-                        <span id="calMonth"></span>월
-                    </td>
-                    <td onclick="nextCalendar();" style="cursor:pointer;">&#62;</td>
-                </tr>
-                <tr>
-                    <td>일</td>
-                    <td>월</td>
-                    <td>화</td>
-                    <td>수</td>
-                    <td>목</td>
-                    <td>금</td>
-                    <td>토</td>  
-                </tr>
-            </th>
-        </table>
+        <div class='rap'>
+            <div class="header">
+               <div class="btn prevDay"></div>
+              <h2 class='dateTitle'></h2>
+              <div class="btn nextDay"></div>
+            </div>
+            
+            <div class="grid dateHead">
+              <div>일</div>
+              <div>월</div>
+              <div>화</div>
+              <div>수</div>
+              <div>목</div>
+              <div>금</div>
+              <div>토</div>
+            </div>
+        
+            <div class="grid dateBoard"></div>
+          </div>
     </div>
     <div class="bottom-bar">
         <nav>
@@ -56,6 +56,6 @@
             </ul>
         </nav>
     </div>
-    
+    <script src="calendar.js"></script>
 </body>
 </html>

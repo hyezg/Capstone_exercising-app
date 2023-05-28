@@ -254,9 +254,9 @@ nav li {
     margin: 35px; margin-top: 70px; margin-bottom: 70px;
     height: 600px;
     background-color: seashell;
+    overflow-y: scroll;
 }
 .Calendar{
     padding: 20px;
 }
-
 
