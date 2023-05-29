@@ -95,20 +95,3 @@ time, mark, audio, video {
   background: #ffd8d8a8;
   padding: 0;
 }
-
- /* .fixed-bar {
-    background-color: #FF7F50;
-    position: fixed;
-    bottom: 0; left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 10px;
-}
-
-.fixed-bar a {
-  color: #fff;
-    font-size: 18px;
-  
-} */
