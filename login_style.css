@@ -15,13 +15,14 @@ a{
     display: flex;
     flex-direction: column;
     align-items: center;
-    width:380px;
+    width:345px;
     height:380px;
-    top:50%;
+    top:60%;
     left:50%;
-    margin: -175px 0px 0px -190px;
+    margin: -179px 0px 0px -174px;
     background-color:white;
     border: 1px solid #DBDBDB;
+    border-radius: 10px;
 }
 
 .login_logo{
