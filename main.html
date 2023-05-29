@@ -32,45 +32,27 @@
         firebase.initializeApp(firebaseConfig);
     </script>
 
-    <script>
+  <script>
         // 오늘의 한 마디 목록
-        var sayings = [
-            "오늘은 행운이 가득한 날입니다.",
-            "자신을 믿고 당신의 꿈을 이루세요.",
-            "감사의 마음을 잊지 말고 살아가세요.",
-            "어제보다 더 나은 하루가 되길 바랍니다.",
-            "오늘은 웃는 얼굴로 시작해보세요."
+        var missions = [
+            "스쿼트 100개",
+            "유산소 1시간 이상",
+            "상체 1시간 이상",
+            "하체 1시간 이상",
+            "데드리프트 3세트 이상"
         ];
     
         // 오늘의 한 마디 랜덤 선택
-        var randomSay = Math.floor(Math.random() * sayings.length);
-        var todaysSaying = sayings[randomSay];
+        var randomMission = Math.floor(Math.random() * missions.length);
+        var todaysMissions = missions[randomMission];
     
         // 페이지 로드 시 오늘의 한 마디 출력
         window.onload = function() {
-        var sayingElement = document.getElementById("todays-saying");
-        sayingElement.textContent = todaysSaying;
-        };
-   
-
-        // 오늘의 한 마디 목록
-        var missions = [
-            "스쿼트 몇개",
-            "상체 1시간",
-            "하체 1시간",
-        ];
-/*
-        // 오늘의 한 마디 랜덤 선택
-        var randomMission = Math.floor(Math.random() * missions.length);
-        var todaysMissins = missions[randomMission];
-
-        // 페이지 로드 시 오늘의 한 마디 출력
-        window.onload = function g() {
         var missionsElement = document.getElementById("todays-missions");
         missionsElement.textContent = todaysMissions;
         };
-*/
     </script>
+    
 </head>
 <body>
     <div id="topbar">
@@ -86,7 +68,6 @@
     </div>
 
     <div id="infowrap">
-        <p id="todays-saying"></p>
         <div id="current_date">
             <script>
                 date = new Date().toLocaleDateString();
@@ -117,7 +98,7 @@
 
     <div id="dailychallengewrap">
         <div id="dailychallengeinfo">
-            <h2>~오늘의 운동~</h2><br>
+            <h2><오늘의 운동></h2><br>
             <p id="todays-missions"></p>
         </div>
     </div>
