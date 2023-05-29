@@ -60,12 +60,14 @@
             padding: 30px;
         }
         button {
-            background: rgba(255, 99, 71, 0.906);;
+            background: rgba(255, 113, 87, 0.906);
             color: #fff;
             font-weight: bold;
             border-color: white;
-            width: 150px; height: 50px;
+            width: 170px; height: 50px;
             border-radius: 10px;
+            font-size: 15px;
+    
         }
         #result {
             text-align: center;
@@ -84,14 +86,15 @@
             box-shadow: 2px 2px 1px rgba(255, 99, 71, 0.906);
             background: #fff;
             color: #7a7878;
-            font-weight: 700;
-            border-radius: 10px;
+            font-size: 15px;
+            font-weight: 600;
+            border-radius: 50px;
             padding: 10px;
-            padding-right: 20px;
-            padding-left: 20px;
+            padding-right: 25px;
+            padding-left: 25px;
         }
         .container select {
-            border: 1px solid #fe846e;
+            border: 1px solid #7a7878;
             font-weight: 500;
             background: #fff;
             /* border-style: inherit; */
@@ -110,32 +113,32 @@
     <div class="top-bar">
         <nav>
             <ul>
-                <li><a href="exercise.html">운동 영상 추천</a></li>
-                <li><a href="raex.html">추천영상</a></li>
+                <li><a href="exercise.html">운동 맞춤 추천</a></li>
+                <li><a href="raex.html">추천 영상</a></li>
             </ul>
         </nav>
     </div><p></p>
     <div class="container">
         <form>
-            <label for="location">- 운동 장소 -</label><br><br>
+            <label for="location">운동 장소</label><br><br>
                 <select id="location">
                     <option value="집">집</option>
                     <option value="헬스장">헬스장</option>
                     <option value="밖">밖</option>
                 </select><p></p><br><br><br>
-            <label for="body-part">- 신체 부위 -</label><br><br>
+            <label for="body-part">운동 부위</label><br><br>
                 <select id="body-part">
                     <option value="상체">상체</option>
                     <option value="하체">하체</option>
                 </select><p></p><br><br><br>
-            <label for="duration">- 영상 길이 -</label><br><br>
+            <label for="duration">영상 시간</label><br><br>
                 <select id="duration">
                     <option value="any">전체</option>
                     <option value="short">15분 이하</option>
                     <option value="medium">30분</option>
                     <option value="long">1시간 이상</option>
                 </select><p></p><br><br><br>
-            <button type="button" id="search-button">검색</button>
+            <button type="button" id="search-button"> 운동 추천받기</button>
         </form>
     </div>
     <div id="result"></div>
