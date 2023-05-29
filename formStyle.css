@@ -4,14 +4,13 @@
 }
 
 body{
-    background-color:rgba(255, 99, 71, 0.658);
+    background-color:tomato;
     margin: 0px;
     color: #262626;
     box-sizing: border-box;
 }
 
 .form_wrapper{
-    border-radius: 15px;
     position:absolute;
     display: flex;
     flex-direction: column;
@@ -20,7 +19,7 @@ body{
     height:450px;
     top:50%;
     left:50%;
-    margin: -175px 0px 0px -175px;
+    margin: -175px 0px 0px -190px;
     background-color:white;
     border: 1px solid #DBDBDB;
     overflow-y: scroll;
@@ -29,9 +28,9 @@ body{
 .form_title{
     margin :30px 0 30px 0;
     color:#262626;
-    font-weight: 700px;
-    font-size: 30px;
-    
+    font-family: 'Lobster', cursive;
+    font-size: 40px;
+    font-weight: 100px;
 }
 
 .info{
